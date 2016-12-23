@@ -77,9 +77,10 @@ var config = {
     })
   ]
 }
-```
 
 // Will output to /${mySha}/${fileName}
+```
+
 #####  example
 ```javascript
 var config = {
