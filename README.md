@@ -46,7 +46,40 @@ var config = {
   ]
 }
 ```
+##### 自己添加文件名
+```javascript
+import gitsha from 'gitsha'
 
+var addSha = function() {
+  return new Promise(function(resolve, reject) {
+    gitsha(__dirname, function(error, output) {
+      if(error)
+        reject(error)
+      else
+       // resolve to first 5 characters of sha
+       resolve(output.slice(0, 5))
+    }) 
+  })
+}
+
+var config = {
+  plugins: [
+    new OSSPlugin({
+      ossOptions: {
+        accessKeyId: process.env.OSS_ACCESS_KEY,
+        accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
+        region: 'oss-cn-shanghai',
+        bucket: process.env.OSS_BUCKET,
+      },
+      ossUploadOptions: {
+      }
+      basePathTransform: addSha
+    })
+  ]
+}
+```
+
+// Will output to /${mySha}/${fileName}
 #####  example
 ```javascript
 var config = {
@@ -77,4 +110,4 @@ var config = {
 - `ossOptions`: 配置文件 [ossConfig](https://github.com/ali-sdk/ali-oss#ossoptions)
 - `ossUploadOptions`: put方法 [put](https://github.com/ali-sdk/ali-oss#putname-file-options)
 - `basePath`: oss路径配置
-- `basePathTransform`: 可以配置一个文件夹名做为路径
+- `basePathTransform`: 可以配置自己应该hash或者sha算法的文件名
