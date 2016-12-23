@@ -1,0 +1,36 @@
+{
+  "name": "webpack-oss",
+  "version": "1.0.0",
+  "description": "oss CDN publish",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pushlish",
+    "oss",
+    "webpack"
+  ],
+
+  "author": "zhao weilong",
+  "license": "ISC",
+  "dependencies": {
+   "ali-oss": "^4.4.4",
+   "co": "^4.6.0",
+   "lodash": "^4.13.0",
+   "recursive-readdir": "^2.0.0"
+   },
+   "devDependencies": {
+     "babel-loader": "^6.2.4",
+     "babel-preset-es2015": "^6.9.0",
+     "babel-register": "^6.9.0",
+     "chai": "^3.4.1",
+     "dotenv": "^2.0.0",
+     "eslint": "^2.13.0",
+     "eslint-loader": "^1.3.0",
+     "html-webpack-plugin": "^2.21.0",
+     "mocha": "^2.5.3",
+     "sinon": "^1.17.4",
+     "webpack": "^1.13.1"
+   }
+}
